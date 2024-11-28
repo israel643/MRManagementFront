@@ -3,7 +3,7 @@ import App from "../pages/Inicio";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/:userName",
         element: <App/>
     },
     {

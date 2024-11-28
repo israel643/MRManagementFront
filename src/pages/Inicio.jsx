@@ -1,19 +1,21 @@
-import { useState } from 'react'
-import GeneralButtons from '../components/Buttons/General-Btn'
+import React from "react";
+import { AuthProvider } from "../context/authContext";
+import Sidebar from "../components/Sidebar/sidebar";
 
-
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-       <div className="container">
-      <h1 className="text-center">¡Hola, Bootstrap 5 con React y Vite!</h1>
-      <button className="btn btn-primary">Click me</button>
-      <GeneralButtons textContent={'hola'}/>
-    </div>
-    </>
-  )
-}
+    <AuthProvider>
+      <div style={{ display: "flex" }}>
+        {/* Sidebar */}
+        <Sidebar />
+        
+        {/* Contenido */}
+        <main style={{ marginLeft: "250px", padding: "20px" }}>
+          <h1>Bienvenido a MR</h1>
+        </main>
+      </div>
+    </AuthProvider>
+  );
+};
 
-export default App
+export default App;

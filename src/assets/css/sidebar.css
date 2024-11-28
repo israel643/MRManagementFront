@@ -1,0 +1,53 @@
+.sidebar{
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar-collapsed{
+    width: 90px;
+}
+
+.sidebar-expanded{
+    width: 288px;
+}
+
+.toggle-button {
+    position: absolute;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    transform: translateY(-50%);
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 0;
+    right: -12px;
+    width: 24px;
+    height: 24px;
+    transition: all 0.2s ease-in-out;
+}
+  
+.toggle-button:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+  
+.toggle-button:focus {
+    outline: none;
+}
+
+.toggle-icon {
+    transition: transform 0.2s ease-in-out;
+    overflow: hidden ;
+}
+
+.toggle-icon--rotated {
+    transform: rotate(180deg);
+}
+
+/* Espaciado en Texto */
+.cut-rol {
+    width: 40px; 
+    height: 40px;
+}
