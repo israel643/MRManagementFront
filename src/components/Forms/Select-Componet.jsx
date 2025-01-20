@@ -1,50 +1,26 @@
-const SelectGeneral = ({
-    label,
-    options, // Lista de opciones para el select
-    value,
-    onChange,
-    name,
-    id,
-    className,
-    disabled,
-    required,
-}) => {
-    return(
-        <>
-            <div className="mb-3">
-                {label && <label htmlFor={id} className="form-label">{label}</label>}
-                <select
-                    className={`form-select ${className}`}
-                    id={id}
-                    name={name}
-                    value={value}
-                    onChange={onChange}
-                    disabled={disabled}
-                    required={required}
-                >
-                    <option value="">-- Selecciona --</option>
-                    {options.map((option, index) => (
-                    <option key={index} value={option.value}>
-                        {option.label}
-                    </option>
-                    ))}
-                </select>
-            </div>
-        </>
-    )
-}
+import React, { forwardRef } from 'react'
 
-SelectGeneral.defaultProps = {
-    label: '',
-    options: [],
-    value: '',
-    onChange: () => {},
-    name: '',
-    id: '',
-    className: '',
-    disabled: false,
-    required: false,
-}
-
-
-export default SelectGeneral;
+export const Select = forwardRef(({ label, id, name, options, value, error, ...props }, ref) => {
+  return (
+    <div className="form-group">
+      <label htmlFor={id} className="form-label">
+        {label}
+      </label>
+      <select
+        ref={ref}
+        id={id}
+        name = {name}
+        value={value}  
+        className={`form-select ${error ? 'is-invalid' : ''}`}
+        {...props}
+      >
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      {error && <div className="error-message">{error}</div>}
+    </div>
+  )
+})

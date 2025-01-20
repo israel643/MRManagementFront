@@ -1,0 +1,19 @@
+.form-group, .form-check {
+    margin: .5rem 2rem;
+}
+
+.btn-custom {
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}

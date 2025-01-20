@@ -1,47 +1,20 @@
-const InputGeneral = ( {
-    label,
-    type,
-    placeholder,
-    value, 
-    onChange, 
-    name, 
-    id,
-    className, 
-    disabled, 
-    required 
-}) => {
+import React, { forwardRef } from 'react'
 
-    return(
-        <>
-            <div className="mb-2">
-                {label && <label htmlFor={id} className="form-label">{label}</label>}
-                <input
-                    type={type}
-                    className={`form-control ${className}`}
-                    id={id}
-                    name={name}
-                    placeholder={placeholder}
-                    value={value}
-                    onChange={onChange}
-                    disabled={disabled}
-                    required={required}
-                />
-            </div>
-        </>
-    )
-}
-
-InputGeneral.defaultProps = {
-    label: 'InputGeneral',
-    type: 'text',
-    placeholder: '',
-    value: '', 
-    onChange: () => {}, 
-    name: '', 
-    id: '',
-    className: '', 
-    disabled: false, 
-    required: false 
-}
-export default InputGeneral;
-
+export const Input = forwardRef(({ label, name, value, id, error, ...props }, ref) => {
+  return (
+    <div className="form-group">
+      <label htmlFor={id} className="form-label">
+        {label}
+      </label>
+      <input
+        ref={ref}
+        id={id}
+        name={name}
+        defaultValue={value}
+        className={`form-control ${error ? 'is-invalid' : ''}`}
+        {...props}
+      />
+      {error && <div className="error-message">{error}</div>}
+    </div>
+  )
+})

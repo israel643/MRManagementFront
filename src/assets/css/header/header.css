@@ -1,0 +1,40 @@
+
+.title-header{
+    font-size: x-large;
+    font-weight: 800;
+}
+
+.subtitle-header{
+    font-weight: 500;
+    color: rgba(171, 178, 185, 0.8)
+}
+
+/* Botón del Sidebar en Header (mobile) */
+.toggle-button-mobile {
+    background-color: #f8f9fa;
+    color: #6c757d; 
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .toggle-button-mobile:hover {
+    background-color: #e9ecef;
+  }
+  
+  .toggle-button-mobile:focus {
+    outline: none;
+    background-color: #e9ecef;
+  }
+  
+  .toggle-button-mobile:active {
+    transform: scale(0.95);
+  }
+  
+  header .container-fluid {
+    position: relative;
+  }
+  

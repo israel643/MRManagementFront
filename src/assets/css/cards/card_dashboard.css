@@ -1,0 +1,50 @@
+.title {
+    font-size: medium;
+    font-weight: 600;
+    color: #4B5563;
+}
+
+.text-content {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.color-green {
+    color: #16A34A;
+}
+
+.color-red {
+    color: #DC2626;
+}
+
+@media (max-width: 576px) {
+    /* Estilos para pantallas menores a 576px */
+    .card-container {
+        min-width: 16rem;
+    }
+}
+
+@media (min-width: 577px) {
+    .card-container {
+        min-width: 19rem;
+    }
+}
+.card-container {
+    border: rgba(156, 163, 175, 0.4) solid 2px;
+    border-radius: 20px;
+    stroke: #4B5563;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon-box {
+    background-color: #FEE2E2;
+    border-radius: 10px;
+}
+
+.icon {
+    color: #DC2626;
+}
+
+.footer{
+    font-size: small;
+}

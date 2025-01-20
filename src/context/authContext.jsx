@@ -49,9 +49,9 @@
 import React, { createContext, useState, useEffect } from "react";
 import { fetchUserPermissions } from "../services/apiService";
 
-function useQuery() {
-  return new URLSearchParams(window.location.search);
-}
+// function useQuery() {
+//   return new URLSearchParams(window.location.search);
+// }
 
 export const AuthContext = createContext();
 
@@ -59,8 +59,8 @@ export const AuthProvider = ({ children }) => {
   const [permissions, setPermissions] = useState([]);
   const [loading, setLoading] = useState(true);
   
-  const query = useQuery();
-  const username = query.get('username');
+  //const query = useQuery();
+  const username = "Carlos Zepeda";//query.get('username');
 
   const pathnames = window.location.pathname.split('/');
   const pathUsername = pathnames[pathnames.length - 1];

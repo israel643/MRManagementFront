@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { menuItems } from "./menuItems";
 import { filterMenuByPermissions } from "./menuUtils";
-import MenuItem from "./MenuItem";
+import MenuItem from "./menuItem";
 
 const SidebarMenu = ({ permissions, isCollapsed }) => {
     const [openSubMenus, setOpenSubMenus] = useState([]);
@@ -14,8 +14,6 @@ const SidebarMenu = ({ permissions, isCollapsed }) => {
     };
 
     const filteredMenu = filterMenuByPermissions(menuItems, permissions);
-    console.log('menu filtrado')
-    console.log(filteredMenu)
 
     return (
         <nav className="mt-4 px-3 overflow-hidden">
