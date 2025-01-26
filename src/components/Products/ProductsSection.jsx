@@ -30,48 +30,44 @@ const ProductSection = () => {
             console.error("Error al cargar categorías:", err);
         }
     }
-    
+
+    async function  cargarProductos() {
+        try {
+            setLoading(true);
+            const data = await productService.getAllProductos();
+            setProducts(data);
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
-        const cargarProductos = async () => {
-            try {
-                setLoading(true);
-                const data = await productService.getAllProductos();
-                setProducts(data);
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
         cargarProductos();
         loadCategories();
     }, []);
 
     //Filtro de productos por categoría y búsqueda
     const filteredProducts = products.filter(product => {
-        console.log(selectedCategory)
-        if (selectedCategory === 'All') return true; // Mostrar todos si está seleccionado "All"
-        const selectedCategoryObj = categories.find(cat => cat.nombre_categoria === selectedCategory); // Buscar por nombre
-        return selectedCategoryObj && product.categoria === selectedCategoryObj.id_categoria; // Comparar por ID
+        if (selectedCategory === 'All') return true;
+        const selectedCategoryObj = categories.find(cat => cat.nombre_categoria === selectedCategory); 
+        return selectedCategoryObj && product.categoria === selectedCategoryObj.id_categoria; 
     });
 
     const handleSave = async (product) => {
-        console.log(product);
         try {
             setLoading(true);
             const data = product.id
                 ? await productService.updateProduct(product.id, product) // Actualizar producto
                 : await productService.createProduct(product); // Crear producto nuevo
-
-            console.log(data);
         } catch (error) {
             setError(error.message);
         } finally {
             setLoading(false);
             setIsModalOpen(false);
             setSelectedProduct(null);
+            await cargarProductos();
         }
     };
 

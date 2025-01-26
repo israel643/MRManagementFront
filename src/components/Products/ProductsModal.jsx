@@ -106,12 +106,12 @@ const ProductModal = ({ product, isOpen, onClose, onSave }) => {
     // Función para generar SKU dinámico
     const generateSKU = (editedProduct, uniqueId) => {
         // Obtener el label de la categoría (a partir del valor numérico) y cortar a 3 letras
-        const categoryLabel = categoryOptions
+        const categoryLabel = categories
             .find((opt) => opt.value === Number(editedProduct.cat_prod))?.label || "XXX";
         const categoryPart = categoryLabel.replace(/\s+/g, "").toUpperCase().substring(0, 3);
 
         // Obtener el label de la marca (a partir del valor numérico) y cortar a 3 letras
-        const brandLabel = brandOptions
+        const brandLabel = brands
             .find((opt) => opt.value === Number(editedProduct.marca))?.label || "XXX";
         const brandPart = brandLabel.replace(/\s+/g, "").toUpperCase().substring(0, 3);
 
