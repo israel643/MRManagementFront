@@ -5,7 +5,7 @@ export const unitMeasureService = {
         try {
             return await fetchData("/um/", "GET");
         } catch (error) {
-            throw new Error("Error al obtener las categorias: " + error.message);
+            throw new Error("Error al obtener las unidades de medida: " + error.message);
         }
     }
 }

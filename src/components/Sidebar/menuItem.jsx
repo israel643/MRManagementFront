@@ -1,17 +1,25 @@
 import React from "react";
 import { ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
 
 const MenuItem = ({ item, isSubItem, isOpen, toggleSubMenu, isCollapsed, setActiveItem, activeItem }) => {
     const hasSubmenu = item.submenu && item.submenu.length > 0;
     const isActive = activeItem === item.id;
+    const navigate = useNavigate(); // Usa el hook useNavigate
+
+    const handleClick = () => {
+        setActiveItem(item.id);
+        if (hasSubmenu) {
+            toggleSubMenu(item.id);
+        } else if (item.path) {
+            navigate(item.path); // Redirige al path especificado en el item
+        }
+    };
 
     return (
         <>
             <button
-                onClick={() => {
-                    setActiveItem(item.id);
-                    if (hasSubmenu) toggleSubMenu(item.id);
-                }}
+                onClick={handleClick} // Usa la función handleClick
                 className={`btn w-100 d-flex align-items-center py-2 rounded mb-1
                         ${isActive
                         ? 'bg-danger bg-opacity-10 text-danger border-danger'
